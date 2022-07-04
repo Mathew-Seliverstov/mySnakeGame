@@ -8,7 +8,6 @@ const foodImg = new Image()
 foodImg.src = "img/food.png"
 
 let box = 32
-
 let score = 0
 
 let food = {
@@ -25,25 +24,23 @@ snake[0] = {
 let dir
 
 function direction(event) {
-	if(event.keyCode == 37 && dir != "right" ) {
-		dir = "left"
-	} else if (event.keyCode == 38 && dir != "down" ) {
-		dir = "up"
-	} else if (event.keyCode == 39 && dir != "left" ) {
-		dir = "right"
-	} else if (event.keyCode == 40 && dir != "up" ) {
-		dir = "down"
-	}
+		if(event.keyCode == 37 && dir != "right" ) {
+			dir = "left"
+		} else if (event.keyCode == 38 && dir != "down" ) {
+			dir = "up"
+		} else if (event.keyCode == 39 && dir != "left" ) {
+			dir = "right"
+		} else if (event.keyCode == 40 && dir != "up" ) {
+			dir = "down"
+		}
 }
 
-	function eatTail(head, arr) {
+function eatTail(head, arr) {
 		for(let i = 0; i < arr.length; i++) {
 			if(head.x == arr[i].x && head.y == arr[i].y)
 			clearInterval(game)
 		}
-	}
-
-
+}
 
 document.addEventListener("keydown", direction)
 
@@ -76,8 +73,8 @@ function drawGame() {
 
 	if(snakeX < box || snakeX > box * 17
 		|| snakeY < box * 3 || snakeY > box * 17) {
-		clearInterval(game)
-		alert("Game over")
+			clearInterval(game)
+			alert('Game over!')
 		}
 
 	if(dir == "left") snakeX -= box
